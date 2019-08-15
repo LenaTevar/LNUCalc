@@ -5,7 +5,7 @@ import { FormComponent } from './form/form.component';
 import { TableComponent } from './table/table.component';
 import { FrontCalcComponent } from './front-calc/front-calc.component';
 import { FailComponent } from './fail/fail.component';
-
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { FailComponent } from './fail/fail.component';
     FailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports:[
     FrontCalcComponent

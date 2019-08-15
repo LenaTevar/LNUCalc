@@ -9,6 +9,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Web App to calculate credits from Linné University Faculty of Technology. 
 
+## Credits
+
+Credits to [Responsive Github Ribbons](https://codepo8.github.io/css-fork-on-github-ribbon/) for their amaizing css responsive ribbon.
+
 
 ## Angular Instructions
 

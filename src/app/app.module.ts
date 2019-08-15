@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { CalculatorModule } from './controllers/calculator/calculator.module';
 
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     NavbarModule,
