@@ -8,11 +8,10 @@ import { CoursesService } from '../../../services/courses.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  private $courses : Course[] = [];
+   $courses : Course[] = [];
   private subscription;
 
   constructor(private courseService : CoursesService) {
-    console.log("Table >> get subcription")
     
     this.subscription = this.courseService.get().subscribe(o_courses =>{
       this.$courses = o_courses;

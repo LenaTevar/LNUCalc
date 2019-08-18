@@ -7,14 +7,10 @@ import { Course } from 'src/app/models/course';
   styleUrls: ['./front-calc.component.css']
 })
 export class FrontCalcComponent implements OnInit {
-  frontCourse : Course; 
+  
   constructor() { }
 
   ngOnInit() {
   }
 
-  childAddedCourse(inCourse: Course){
-    console.log("frontcalc child added course " + inCourse.code);
-    this.frontCourse = inCourse;
-  }
 }
