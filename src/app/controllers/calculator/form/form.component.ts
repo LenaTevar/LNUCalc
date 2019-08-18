@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../../models/course';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { CoursesService } from '../../../services/courses.service';
+
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -12,13 +16,13 @@ export class FormComponent implements OnInit {
     credits: null 
   };
   
-  constructor() { }
+  constructor(private coursesService:CoursesService) { }
 
   ngOnInit() {
+    
   }
 
-  onSubmit(){
-    console.log("code: " + this.course.code)
-    console.log("credits: " + this.course.credits)
-  }
+  onSubmit(input) : void {
+    this.coursesService.update(input.value.code, input.value.credits);
+  } 
 }

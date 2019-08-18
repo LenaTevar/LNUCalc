@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from 'src/app/models/course';
 
 @Component({
   selector: 'frontCalc',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./front-calc.component.css']
 })
 export class FrontCalcComponent implements OnInit {
-
+  frontCourse : Course; 
   constructor() { }
 
   ngOnInit() {
   }
 
+  childAddedCourse(inCourse: Course){
+    console.log("frontcalc child added course " + inCourse.code);
+    this.frontCourse = inCourse;
+  }
 }

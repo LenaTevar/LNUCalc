@@ -1,5 +1,5 @@
 <div class="newsletter">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit(inputForm)" #inputForm="ngForm">
         <div class="form-group">
           <label>Course</label>
           <input type="text" 
@@ -24,7 +24,8 @@
             placeholder="Add Credtis" 
             [(ngModel)]="course.credits" 
             name="credits"
-            #credits="ngModel">
+            #credits="ngModel"
+            required>
 
             <div class="alert alert-danger" 
           *ngIf="credits.touched && credits.invalid">
@@ -32,7 +33,9 @@
           </div>
           </div>
         <button type="submit" 
-        class="btn btn-primary">Submit</button>
+        class="btn btn-primary"
+        [disabled]="!inputForm.touched || !inputForm.valid"
+        >Submit</button>
     </form>
   </div>
   
