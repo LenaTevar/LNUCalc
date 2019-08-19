@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Course } from 'src/app/models/course';
+import { Course } from 'src/app/models/course/course';
 import { CoursesService } from '../../../services/courses.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { CoursesService } from '../../../services/courses.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-   $courses : Course[] = [];
+  $courses : Course[] = [];
   private subscription;
 
   constructor(private courseService : CoursesService) {

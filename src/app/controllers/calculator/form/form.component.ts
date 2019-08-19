@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Course } from '../../../models/course';
+import { Course } from '../../../models/course/course';
 import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { CoursesService } from '../../../services/courses.service';
@@ -11,10 +11,7 @@ import { CoursesService } from '../../../services/courses.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  course: Course = {
-    code: "",
-    credits: null 
-  };
+  course: Course = new Course("",0,"");
   
   constructor(private coursesService:CoursesService) { }
 
