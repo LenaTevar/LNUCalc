@@ -19,7 +19,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-   
+   this.CoursePlanService.addCourse("2dv500",15);
   }
 
   ngOnDestroy(){

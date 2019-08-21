@@ -1,9 +1,9 @@
 <div class="alert alert-info" role="alert">
 <h5>Remaining credits</h5>
+<p>Credits needed to complete a CS program.</p>
 <hr>
 
-<div *ngFor="let block of blocks">
-    <p> {{block.name}} - {{block.credits}}</p>
+<div *ngFor="let block of blocks"> 
+    <p>{{block.type}} - <strong>{{block.name}}:</strong> {{block.credits}}</p>
 </div>
-
 </div>
