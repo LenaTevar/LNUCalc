@@ -4,6 +4,7 @@
       <th scope="col">Code</th>
       <th scope="col">Credits</th>
       <th scope="col">Type</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -13,6 +14,12 @@
       </td>
       <td>{{c.credits}}</td>
       <td>{{c.type}}</td>
+      <td>
+        <button type="button" 
+        class="btn btn-danger"
+        (click)="deleteCourseBtn(c)"
+        >X</button>
+      </td>
     </tr>
     
     </tbody>

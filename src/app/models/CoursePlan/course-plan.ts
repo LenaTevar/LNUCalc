@@ -34,8 +34,6 @@ export class CoursePlan {
             return false;
         }
         this.setcredits(code,credits);
-        console.log("COURSE PLAN: ");
-        this.a_credits.forEach(c => console.log(c));
         return true;
     }
 
@@ -45,6 +43,13 @@ export class CoursePlan {
 
     public getCredits() : Credits{
         return new Credits(this.a_credits[0],this.a_credits[1],this.a_credits[2],this.a_credits[3]);
+    }
+
+    public deleteCourse(course:Course){
+        let index : number = this.a_courses.indexOf(course);
+        if(index !== -1){
+            this.a_courses.splice(index,1);
+        }
     }
 
     private setcredits(code:string, credits:number){

@@ -26,6 +26,10 @@ export class TableComponent implements OnInit {
   ngOnDestroy(){
     this.subscription.unsubscribe();
   }
+
+  deleteCourseBtn(course:Course){
+    this.courseService.deleteCourse(course);
+  }
  
 
 }

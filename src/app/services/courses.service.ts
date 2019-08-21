@@ -33,6 +33,11 @@ export class CoursesService {
     }
   }
 
+  deleteCourse(course:Course){
+    this.coursePlan.deleteCourse(course);
+    this.updateObservables();
+  }
+
   updateObservables(){
     this.updateCourses();
     this.updateCredits();
