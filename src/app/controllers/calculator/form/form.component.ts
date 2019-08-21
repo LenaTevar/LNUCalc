@@ -1,8 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Course } from '../../../models/course/course';
-import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { CoursesService } from '../../../services/courses.service';
+import { CoursePlanService } from '../../../services/course-plan.service';
 
 
 @Component({
@@ -11,15 +8,19 @@ import { CoursesService } from '../../../services/courses.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  course: Course = new Course("",0,"");
+  course = {
+    code:"",
+    credits:0
+  }
   
-  constructor(private coursesService:CoursesService) { }
+
+  constructor(private CoursePlanService:CoursePlanService) { }
 
   ngOnInit() {
-    
   }
 
   onSubmit(input) : void {
-    this.coursesService.update(input.value.code, input.value.credits);
+    console.log("FORM COMPONENT>>" + input.value.code);
+    this.CoursePlanService.addCourse(input.value.code, input.value.credits);
   } 
 }

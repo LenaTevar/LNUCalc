@@ -1,10 +1,9 @@
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-info" role="alert">
 <h5>Remaining credits</h5>
 <hr>
-<div *ngIf="$credits.adv==0"></div>
 
-<p> Computer Science: <strong> {{$credits.cs }}hp</strong> </p>
-<p> Computer Science Advanced: <strong>{{$credits.adv}}hp</strong></p>
-<p> Free Standing: <strong>{{$credits.free}}hp</strong></p>
-<p> Free Standing non CS: <strong>{{$credits.non}}hp</strong></p>
+<div *ngFor="let block of blocks">
+    <p> {{block.name}} - {{block.credits}}</p>
+</div>
+
 </div>

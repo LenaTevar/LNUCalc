@@ -1,14 +1,15 @@
 import { CoursePlan } from '../CoursePlan/course-plan';
 export class Credits {
-    public cs : number;
-    public adv : number;
+    public program : number;
+    
+    public program_adv : number;
     public free : number;
-    public non : number
+    public non_program : number
     
     constructor(c:number, a:number, f:number, n:number){
-        this.cs = c;
-        this.adv = a;
+        this.program = c;
+        this.program_adv = a;
         this.free = f;
-        this.non = n;
+        this.non_program = n;
     }
 }

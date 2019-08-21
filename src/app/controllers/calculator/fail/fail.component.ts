@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CoursesService } from '../../../services/courses.service';
 import { Credits } from '../../../models/Credits/credits';
+import { CoursePlanService } from '../../../services/course-plan.service';
+import { CoursePlan } from '../../../models/CoursePlan/course-plan';
+import { ProgramBlock } from '../../../models/ProgramBlock/program-block';
 
 @Component({
   selector: 'fail',
@@ -8,13 +11,13 @@ import { Credits } from '../../../models/Credits/credits';
   styleUrls: ['./fail.component.css']
 })
 export class FailComponent implements OnInit {
-  $credits : Credits = new Credits (0,0,0,0);
+  private coursePlan : CoursePlan = new CoursePlan();
+  private blocks : ProgramBlock[] = [];
   private subscription;
-  constructor(private CoursesService:CoursesService) { 
-    this.subscription = this.CoursesService.getCredits().subscribe(o_credits =>{
-      this.$credits = o_credits;
-      console.log("FAIL COMPONENT" + o_credits.cs);
-    })
+  constructor(private CoursePlanService : CoursePlanService) { 
+   this.CoursePlanService.getCoursePlan().subscribe(cp => {
+     this.blocks = cp.planning;
+   })
   }
 
   ngOnInit() {

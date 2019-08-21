@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Course } from 'src/app/models/course/course';
-import { CoursesService } from '../../../services/courses.service';
+import { CoursePlanService } from '../../../services/course-plan.service';
+import { CoursePlan } from '../../../models/CoursePlan/course-plan';
 
 @Component({
   selector: 'app-table',
@@ -8,15 +9,13 @@ import { CoursesService } from '../../../services/courses.service';
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-  $courses : Course[] = [];
+  courses : Course[] = [];
   private subscription;
 
-  constructor(private courseService : CoursesService) {
-    
-    this.subscription = this.courseService.get().subscribe(o_courses =>{
-      this.$courses = o_courses;
-    });
-   
+  constructor(private CoursePlanService:CoursePlanService) {
+    this.CoursePlanService.getCourses().subscribe(o_c =>{
+      this.courses = o_c;
+    })
   }
 
   ngOnInit() {
@@ -28,7 +27,7 @@ export class TableComponent implements OnInit {
   }
 
   deleteCourseBtn(course:Course){
-    this.courseService.deleteCourse(course);
+    this.CoursePlanService.deleteCourse(course);
   }
  
 

@@ -1,41 +1,41 @@
-<div class="newsletter">
-    <form (ngSubmit)="onSubmit(inputForm)" #inputForm="ngForm">
-        <div class="form-group">
-          <label>Course</label>
-          <input type="text" 
-          class="form-control" 
-          placeholder="Add Course" 
-          [(ngModel)]="course.code" 
-          name="code" 
-          #code="ngModel"
-          required pattern="[0-9][a-zA-Z]{2}[0-9]{3}">
+<div class="wrapper">
+  <form (ngSubmit)="onSubmit(inputForm)" #inputForm="ngForm">
+    <div class="form-group">
+      <label>Course</label>
+      <input type="text" 
+      class="form-control" 
+      placeholder="Add Course" 
+      [(ngModel)]="course.code" 
+      name="code" 
+      #code="ngModel"
+      required pattern="[0-9][a-zA-Z]{2}[0-9]{3}">
 
-          <div class="alert alert-danger" 
-          *ngIf="code.touched && code.invalid">
-              I need a code! format #xx###
-          </div>
-        </div>
-        
-        <div class="form-group">
-            <label>Credtis</label>
-            <input type="number" 
-            step=0.1
-            class="form-control" 
-            placeholder="Add Credtis" 
-            [(ngModel)]="course.credits" 
-            name="credits"
-            #credits="ngModel"
-            required>
+      <div class="alert alert-danger" 
+      *ngIf="code.touched && code.invalid">
+          I need a code! format #xx###
+      </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Credtis</label>
+        <input type="number" 
+        step=0.1
+        class="form-control" 
+        placeholder="Add Credtis" 
+        [(ngModel)]="course.credits" 
+        name="credits"
+        #credits="ngModel"
+        required>
 
-            <div class="alert alert-danger" 
-          *ngIf="credits.touched && credits.invalid">
-              I need credits!
-          </div>
-          </div>
-        <button type="submit" 
-        class="btn btn-primary"
-        [disabled]="!inputForm.touched || !inputForm.valid"
-        >Submit</button>
-    </form>
+        <div class="alert alert-danger" 
+      *ngIf="credits.touched && credits.invalid">
+          I need credits!
+      </div>
+      </div>
+    <button type="submit" 
+    class="btn btn-primary"
+    [disabled]="!inputForm.touched || !inputForm.valid"
+    >Submit</button>
+</form>
   </div>
   

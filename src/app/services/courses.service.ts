@@ -1,53 +1,58 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../models/course/course';
-import { Subject } from 'rxjs/internal/Subject';
-import { Observable } from 'rxjs/internal/Observable';
-import { CoursePlan } from '../models/CoursePlan/course-plan';
-import { Credits } from '../models/Credits/credits';
+import { CTYPE } from '../models/CTYPE/ctype.enum';
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  
+  private isProgram = new RegExp(/[0-9][dv|DV]{2}[0-9]{3}/);
+  private isProgramAdv = new RegExp(/[2][dv|DV]{2}[0-9]{3}/);
 
-  private o_courses = new Subject<Course[]>();
-  private o_credits = new Subject<Credits>();
-  private coursePlan : CoursePlan = new CoursePlan();
-  
-  
-  constructor(){
-  }
-
-  get():Observable<Course[]>{
-    return this.o_courses.asObservable();
-  }
-  getCredits():Observable<Credits>{
-    return this.o_credits.asObservable();
-  }
-
-  update(code: string, credits: number) {
-    if (this.coursePlan.addCourse(code,credits)){
-      this.updateObservables();
+  public buildCourse(code:string, credits:number){
+    if(code.match(this.isProgram)){
+      console.log("CS>> is program")
+      return this.buildProgramCourse(code, credits);
     } else {
-      console.log("Course repeated, skipping");
+      return this.buildNonProgramCourse(code, credits);
     }
   }
 
-  deleteCourse(course:Course){
-    this.coursePlan.deleteCourse(course);
-    this.updateObservables();
+  public buildCourseNextType(course:Course){
+    let index = course.type.valueOf();
+    if(course.type === CTYPE.NON_PROGRAM)
+      index = 2;
+    else
+      index++;
+
+
+    switch (index) {      
+      case 2:
+          course.type =  CTYPE.PROGRAM;
+          break;
+      case 3:
+          course.type =  CTYPE.FREE;
+          break;
+      case 4:
+          course.type =  CTYPE.NOT_USED;
+          break;
+      default:
+          course.type =  CTYPE.NOT_USED; 
+          break;      
+    }
+    return course;
   }
 
-  updateObservables(){
-    this.updateCourses();
-    this.updateCredits();
+  private buildProgramCourse(code:string, credits:number): Course{
+    if(code.match(this.isProgramAdv)){
+      return new Course(code,credits,CTYPE.PROGRAM_ADV)
+    } else {
+      return new Course(code,credits,CTYPE.PROGRAM);
+    }
+  }
+  private buildNonProgramCourse(code:string, credits:number) : Course{
+    return new Course(code,credits,CTYPE.NON_PROGRAM);
   }
 
-  updateCourses(){
-    this.o_courses.next(this.coursePlan.getCourses())
-  }
-  updateCredits(){
-    this.o_credits.next(this.coursePlan.getCredits());
-  }
+ 
 }
 
