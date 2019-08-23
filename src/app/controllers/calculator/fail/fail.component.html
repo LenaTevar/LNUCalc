@@ -4,6 +4,13 @@
 <hr>
 
 <div *ngFor="let block of blocks"> 
-    <p>{{block.type}} - <strong>{{block.name}}:</strong> {{block.credits}}</p>
+    <div *ngIf="block.type !== 4; else notUsed">        
+        <p>{{block.type}} - <strong>{{block.name}}:</strong> {{block.credits}} hp</p>      
+    </div>
+    <ng-template #notUsed>
+        <hr>
+        <p>{{block.type}} - <strong>{{block.name}}:</strong> {{notUsedCredits(block.credits)}} hp</p> 
+    </ng-template>
+    </div>
 </div>
-</div>
+

@@ -1,0 +1,324 @@
+[debug] [2019-08-21T15:00:10.676Z] ----------------------------------------------------------------------
+[debug] [2019-08-21T15:00:10.679Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hteva\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-08-21T15:00:10.679Z] CLI Version:   7.2.2
+[debug] [2019-08-21T15:00:10.680Z] Platform:      win32
+[debug] [2019-08-21T15:00:10.680Z] Node Version:  v10.16.0
+[debug] [2019-08-21T15:00:10.681Z] Time:          Wed Aug 21 2019 17:00:10 GMT+0200 (Central European Summer Time)
+[debug] [2019-08-21T15:00:10.681Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-21T15:00:10.732Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-21T15:00:10.734Z] > authorizing via signed-in user
+[debug] [2019-08-21T15:00:10.734Z] [iam] checking project lnucalc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-08-21T15:00:10.737Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-21T15:00:10.737Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-21T15:00:10.897Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:00:10.934Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/lnucalc:testIamPermissions  
+
+[debug] [2019-08-21T15:00:11.884Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:00:11.887Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/lnucalc  
+ 
+[debug] [2019-08-21T15:00:12.175Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'lnucalc'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-08-21T15:00:12.182Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions  
+
+[debug] [2019-08-21T15:00:13.818Z] <<< HTTP RESPONSE 200
+[info] i  hosting[lnucalc]: beginning deploy...
+[info] i  hosting[lnucalc]: found 10 files in dist/LNUCalc
+[debug] [2019-08-21T15:00:13.865Z] [hosting] hash cache [ZGlzdFxMTlVDYWxj] load error: lines is not defined
+[debug] [2019-08-21T15:00:13.923Z] [hosting] hash cache [ZGlzdFxMTlVDYWxj] stored for 10 files
+[debug] [2019-08-21T15:00:13.924Z] [hosting][hash queue][FINAL]
+[debug] [2019-08-21T15:00:13.924Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/96aa8c9767c3d50a:populateFiles  
+ <request body omitted>
+[debug] [2019-08-21T15:00:15.364Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:00:15.373Z] [hosting][populate queue][FINAL]
+[debug] [2019-08-21T15:00:15.374Z] [hosting] uploads queued: 3
+[debug] [2019-08-21T15:00:17.936Z] [hosting][upload queue][FINAL]
+[info] +  hosting[lnucalc]: file upload complete
+[debug] [2019-08-21T15:00:17.937Z] [hosting] deploy completed after 4114ms
+[debug] [2019-08-21T15:00:18.030Z] [
+  {
+    "config": {
+      "public": "dist/LNUCalc",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "lnucalc"
+    },
+    "site": "lnucalc",
+    "version": "sites/lnucalc/versions/96aa8c9767c3d50a"
+  }
+]
+[info] i  hosting[lnucalc]: finalizing version...
+[debug] [2019-08-21T15:00:18.032Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/96aa8c9767c3d50a?updateMask=status  
+
+[debug] [2019-08-21T15:00:19.008Z] <<< HTTP RESPONSE 500
+[debug] [2019-08-21T15:00:19.008Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-08-21T15:00:19.086Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 21 Aug 2019 15:00:40 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "firebasehosting.googleapis.com",
+        "port": 443,
+        "hostname": "firebasehosting.googleapis.com",
+        "hash": null,
+        "search": "?updateMask=status",
+        "query": "updateMask=status",
+        "pathname": "/v1beta1/sites/lnucalc/versions/96aa8c9767c3d50a",
+        "path": "/v1beta1/sites/lnucalc/versions/96aa8c9767c3d50a?updateMask=status",
+        "href": "https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/96aa8c9767c3d50a?updateMask=status"
+      },
+      "method": "PATCH"
+    }
+  }
+}
+[debug] [2019-08-21T15:03:38.720Z] ----------------------------------------------------------------------
+[debug] [2019-08-21T15:03:38.723Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hteva\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-08-21T15:03:38.724Z] CLI Version:   7.2.2
+[debug] [2019-08-21T15:03:38.724Z] Platform:      win32
+[debug] [2019-08-21T15:03:38.724Z] Node Version:  v10.16.0
+[debug] [2019-08-21T15:03:38.725Z] Time:          Wed Aug 21 2019 17:03:38 GMT+0200 (Central European Summer Time)
+[debug] [2019-08-21T15:03:38.725Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-21T15:03:38.740Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-21T15:03:38.742Z] > authorizing via signed-in user
+[debug] [2019-08-21T15:03:38.742Z] [iam] checking project lnucalc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-08-21T15:03:38.745Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/lnucalc:testIamPermissions  
+
+[debug] [2019-08-21T15:03:39.726Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:03:39.734Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/lnucalc  
+ 
+[debug] [2019-08-21T15:03:39.998Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'lnucalc'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-08-21T15:03:40.004Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions  
+
+[debug] [2019-08-21T15:03:40.998Z] <<< HTTP RESPONSE 500
+[debug] [2019-08-21T15:03:40.999Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-08-21T15:03:41.107Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 21 Aug 2019 15:04:02 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "firebasehosting.googleapis.com",
+        "port": 443,
+        "hostname": "firebasehosting.googleapis.com",
+        "hash": null,
+        "search": null,
+        "query": null,
+        "pathname": "/v1beta1/sites/lnucalc/versions",
+        "path": "/v1beta1/sites/lnucalc/versions",
+        "href": "https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions"
+      },
+      "method": "POST"
+    }
+  }
+}
+[debug] [2019-08-21T15:04:49.153Z] ----------------------------------------------------------------------
+[debug] [2019-08-21T15:04:49.157Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\hteva\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-08-21T15:04:49.157Z] CLI Version:   7.2.4
+[debug] [2019-08-21T15:04:49.157Z] Platform:      win32
+[debug] [2019-08-21T15:04:49.157Z] Node Version:  v10.16.0
+[debug] [2019-08-21T15:04:49.159Z] Time:          Wed Aug 21 2019 17:04:49 GMT+0200 (Central European Summer Time)
+[debug] [2019-08-21T15:04:49.159Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-21T15:04:49.174Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-21T15:04:49.175Z] > authorizing via signed-in user
+[debug] [2019-08-21T15:04:49.175Z] [iam] checking project lnucalc for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-08-21T15:04:49.179Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/lnucalc:testIamPermissions  
+
+[debug] [2019-08-21T15:04:50.158Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:04:50.166Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/lnucalc  
+ 
+[debug] [2019-08-21T15:04:50.420Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'lnucalc'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-08-21T15:04:50.436Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions  
+
+[debug] [2019-08-21T15:04:51.921Z] <<< HTTP RESPONSE 200
+[info] i  hosting[lnucalc]: beginning deploy...
+[info] i  hosting[lnucalc]: found 11 files in dist/LNUCalc
+[debug] [2019-08-21T15:04:52.004Z] [hosting] hash cache [ZGlzdFxMTlVDYWxj] load error: lines is not defined
+[debug] [2019-08-21T15:04:52.066Z] [hosting] hash cache [ZGlzdFxMTlVDYWxj] stored for 11 files
+[debug] [2019-08-21T15:04:52.067Z] [hosting][hash queue][FINAL]
+[debug] [2019-08-21T15:04:52.067Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/11336b552688a46e:populateFiles  
+ <request body omitted>
+[debug] [2019-08-21T15:04:53.031Z] <<< HTTP RESPONSE 500
+[debug] [2019-08-21T15:04:53.031Z] <<< HTTP RESPONSE BODY
+[debug] [2019-08-21T15:04:53.433Z] [populateQueue] Retrying task index 0
+[debug] [2019-08-21T15:04:53.434Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/11336b552688a46e:populateFiles  
+ <request body omitted>
+[debug] [2019-08-21T15:04:54.386Z] <<< HTTP RESPONSE 500
+[debug] [2019-08-21T15:04:54.386Z] <<< HTTP RESPONSE BODY
+[debug] [2019-08-21T15:04:55.188Z] [populateQueue] Retrying task index 0
+[debug] [2019-08-21T15:04:55.188Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/11336b552688a46e:populateFiles  
+ <request body omitted>
+[debug] [2019-08-21T15:04:57.263Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:04:57.269Z] [hosting][populate queue][FINAL]
+[debug] [2019-08-21T15:04:57.269Z] [hosting] uploads queued: 1
+[debug] [2019-08-21T15:05:00.351Z] [hosting][upload queue][FINAL]
+[info] +  hosting[lnucalc]: file upload complete
+[debug] [2019-08-21T15:05:00.353Z] [hosting] deploy completed after 8430ms
+[debug] [2019-08-21T15:05:00.455Z] [
+  {
+    "config": {
+      "public": "dist/LNUCalc",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "lnucalc"
+    },
+    "site": "lnucalc",
+    "version": "sites/lnucalc/versions/11336b552688a46e"
+  }
+]
+[info] i  hosting[lnucalc]: finalizing version...
+[debug] [2019-08-21T15:05:00.456Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/versions/11336b552688a46e?updateMask=status  
+
+[debug] [2019-08-21T15:05:01.619Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-21T15:05:01.620Z] [hosting] finalized version for lnucalc:
+[info] +  hosting[lnucalc]: version finalized
+[info] i  hosting[lnucalc]: releasing new version...
+[debug] [2019-08-21T15:05:01.623Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/releases?version_name=sites/lnucalc/versions/11336b552688a46e  
+
+[debug] [2019-08-21T15:05:02.576Z] <<< HTTP RESPONSE 500
+[debug] [2019-08-21T15:05:02.576Z] <<< HTTP RESPONSE BODY
+[error] 
+[error] Error: HTTP Error: 500, Internal error encountered.
+[debug] [2019-08-21T15:05:02.647Z] Error Context: {
+  "body": {
+    "error": {
+      "code": 500,
+      "message": "Internal error encountered.",
+      "status": "INTERNAL"
+    }
+  },
+  "response": {
+    "statusCode": 500,
+    "body": {
+      "error": {
+        "code": 500,
+        "message": "Internal error encountered.",
+        "status": "INTERNAL"
+      }
+    },
+    "headers": {
+      "vary": "X-Origin, Referer, Origin,Accept-Encoding",
+      "content-type": "application/json; charset=UTF-8",
+      "date": "Wed, 21 Aug 2019 15:05:24 GMT",
+      "server": "ESF",
+      "cache-control": "private",
+      "x-xss-protection": "0",
+      "x-frame-options": "SAMEORIGIN",
+      "x-content-type-options": "nosniff",
+      "alt-svc": "quic=\":443\"; ma=2592000; v=\"46,43,39\"",
+      "accept-ranges": "none",
+      "transfer-encoding": "chunked"
+    },
+    "request": {
+      "uri": {
+        "protocol": "https:",
+        "slashes": true,
+        "auth": null,
+        "host": "firebasehosting.googleapis.com",
+        "port": 443,
+        "hostname": "firebasehosting.googleapis.com",
+        "hash": null,
+        "search": "?version_name=sites/lnucalc/versions/11336b552688a46e",
+        "query": "version_name=sites/lnucalc/versions/11336b552688a46e",
+        "pathname": "/v1beta1/sites/lnucalc/releases",
+        "path": "/v1beta1/sites/lnucalc/releases?version_name=sites/lnucalc/versions/11336b552688a46e",
+        "href": "https://firebasehosting.googleapis.com/v1beta1/sites/lnucalc/releases?version_name=sites/lnucalc/versions/11336b552688a46e"
+      },
+      "method": "POST"
+    }
+  }
+}
