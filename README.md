@@ -5,7 +5,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.1 and firebase version 7.2.2
 
-[Project Deployed](https://lnucalc.firebaseapp.com/)
+[Project Deployed](https://lenatevar.github.io/LNUCalc/)
 
 Web App to calculate credits from Linné University Faculty of Technology. 
 
